@@ -337,6 +337,7 @@ namespace TicTacToe
 
                 default:
                     Console.WriteLine("Diese Eingabe entspricht nicht den Zahlen von 1-9. Try again.");
+                    Game(Spielstand, SpielzugCounter, Player1, Player2);
                     break;
                     
                     
