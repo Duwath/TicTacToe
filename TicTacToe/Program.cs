@@ -22,7 +22,7 @@ namespace TicTacToe
             int Player2Number = 2;
             int[] Spielstand = { 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-            SpielzugCounter = Game(Spielstand, SpielzugCounter, Player1, Player2);
+            SpielzugCounter = Game(Spielstand, SpielzugCounter);
 
             Console.Write(SpielzugCounter);
             Console.Write(Spielstand[0]);
@@ -53,7 +53,7 @@ namespace TicTacToe
             Console.WriteLine(Leerzeile);
         }
         
-        private static int Game(int[]Spielstand, int SpielzugCounter, string Player1, string Player2)
+        private static int Game(int[]Spielstand, int SpielzugCounter)
         {
             string Auswahl = "";
             Auswahl = Console.ReadLine();         
@@ -72,7 +72,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
                         }
                     }
                     else
@@ -84,7 +84,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
                         }
 
                     }                    
@@ -99,7 +99,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
                     }
@@ -112,7 +112,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
 
@@ -128,7 +128,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
                     }
@@ -141,7 +141,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
 
@@ -157,7 +157,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
                     }
@@ -170,7 +170,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
 
@@ -186,7 +186,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
                     }
@@ -199,7 +199,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
 
@@ -215,7 +215,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
                     }
@@ -228,7 +228,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
 
@@ -244,7 +244,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
                     }
@@ -257,7 +257,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
 
@@ -273,7 +273,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
                     }
@@ -286,7 +286,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
 
@@ -302,7 +302,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
                     }
@@ -315,7 +315,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand, SpielzugCounter, Player1, Player2);
+                            Game(Spielstand, SpielzugCounter);
 
                         }
 
@@ -324,13 +324,12 @@ namespace TicTacToe
 
                 default:
                     Console.WriteLine("Diese Eingabe entspricht nicht den Zahlen von 1-9. Try again.");
-                    Game(Spielstand, SpielzugCounter, Player1, Player2);
+                    Game(Spielstand, SpielzugCounter);
                     break;                    
             }
 
             SpielzugCounter++;
-            return SpielzugCounter;
-            return Spielstand;
+            return SpielzugCounter;            
         }
     }
 }
