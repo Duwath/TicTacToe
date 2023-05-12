@@ -4,9 +4,10 @@ namespace TicTacToe
 {
     class Program
     {
-
+   
         static void Main(string[] args)
         {
+            int SpielzugCounter = 1;
             //Playernames
             string Player1 = "";
             string Player2 = "";
@@ -20,9 +21,13 @@ namespace TicTacToe
             int Player1Number = 1;
             int Player2Number = 2;
             int[] Spielstand = { 0, 0, 0, 0, 0, 0, 0, 0, 0};
-            int SpielzugCounter = 1;
-            Game(Spielstand, SpielzugCounter, Player1, Player2);
-            
+
+            SpielzugCounter = Game(Spielstand, SpielzugCounter, Player1, Player2);
+
+            Console.Write(SpielzugCounter);
+
+
+
         }
 
         private static string PlayerName()
@@ -46,7 +51,12 @@ namespace TicTacToe
             Console.WriteLine(Zeile3);
             Console.WriteLine(Leerzeile);
         }
-        private static void Game(int[]Spielstand, int SpielzugCounter, string Player1, string Player2)
+        private int Zaehler(int SpielzugCounter)
+        {
+            SpielzugCounter++;
+            return SpielzugCounter;
+        }
+        private static int Game(int[]Spielstand, int SpielzugCounter, string Player1, string Player2)
         {
             string Auswahl = "";
             Auswahl = Console.ReadLine();         
@@ -60,14 +70,12 @@ namespace TicTacToe
                     {
                         if (Spielstand[0] == 0)
                         {
-                            Spielstand[0] = 2;
-                            SpielzugCounter++;
+                            Spielstand[0] = 2;                            
                         }
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
                             Game(Spielstand, SpielzugCounter, Player1, Player2);
-
                         }
                     }
                     else
@@ -75,13 +83,11 @@ namespace TicTacToe
                         if (Spielstand[0] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
                             Game(Spielstand, SpielzugCounter, Player1, Player2);
-
                         }
 
                     }                    
@@ -92,7 +98,6 @@ namespace TicTacToe
                         if (Spielstand[1] == 0)
                         {
                             Spielstand[0] = 2;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -106,7 +111,6 @@ namespace TicTacToe
                         if (Spielstand[1] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -123,7 +127,6 @@ namespace TicTacToe
                         if (Spielstand[2] == 0)
                         {
                             Spielstand[0] = 2;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -137,7 +140,6 @@ namespace TicTacToe
                         if (Spielstand[2] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -154,7 +156,6 @@ namespace TicTacToe
                         if (Spielstand[3] == 0)
                         {
                             Spielstand[0] = 2;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -168,7 +169,6 @@ namespace TicTacToe
                         if (Spielstand[3] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -185,7 +185,6 @@ namespace TicTacToe
                         if (Spielstand[4] == 0)
                         {
                             Spielstand[0] = 2;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -199,7 +198,6 @@ namespace TicTacToe
                         if (Spielstand[4] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -216,7 +214,6 @@ namespace TicTacToe
                         if (Spielstand[5] == 0)
                         {
                             Spielstand[0] = 2;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -230,7 +227,6 @@ namespace TicTacToe
                         if (Spielstand[5] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -247,7 +243,6 @@ namespace TicTacToe
                         if (Spielstand[6] == 0)
                         {
                             Spielstand[0] = 2;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -261,7 +256,6 @@ namespace TicTacToe
                         if (Spielstand[6] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -278,7 +272,6 @@ namespace TicTacToe
                         if (Spielstand[7] == 0)
                         {
                             Spielstand[0] = 2;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -292,7 +285,6 @@ namespace TicTacToe
                         if (Spielstand[7] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -309,7 +301,6 @@ namespace TicTacToe
                         if (Spielstand[8] == 0)
                         {
                             Spielstand[0] = 2;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -323,7 +314,6 @@ namespace TicTacToe
                         if (Spielstand[8] == 0)
                         {
                             Spielstand[0] = 1;
-                            SpielzugCounter++;
                         }
                         else
                         {
@@ -338,10 +328,11 @@ namespace TicTacToe
                 default:
                     Console.WriteLine("Diese Eingabe entspricht nicht den Zahlen von 1-9. Try again.");
                     Game(Spielstand, SpielzugCounter, Player1, Player2);
-                    break;
-                    
-                    
+                    break;                    
             }
+
+            SpielzugCounter++;
+            return SpielzugCounter;
         }
     }
 }
