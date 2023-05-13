@@ -41,11 +41,8 @@ namespace TicTacToe
         }
         private static int Zaehler(int SpielzugCounter)
         {
-
             SpielzugCounter++;
             return SpielzugCounter;
-
-
         }
 
         private static string PlayerName()
@@ -74,10 +71,8 @@ namespace TicTacToe
         private static int[] Game(int[]Spielstand, int SpielzugCounter)
         {
             string Auswahl = "";
-            Auswahl = Console.ReadLine();         
+            Auswahl = Console.ReadLine();
             
-
-
             switch (Auswahl)
             {
                 case "1":
@@ -344,9 +339,7 @@ namespace TicTacToe
                     Console.WriteLine("Diese Eingabe entspricht nicht den Zahlen von 1-9. Try again.");
                     Game(Spielstand, SpielzugCounter);
                     break;                    
-            }
-
-            
+            }            
             return  Spielstand;            
         }
     }
