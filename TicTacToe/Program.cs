@@ -7,26 +7,43 @@ namespace TicTacToe
    
         static void Main(string[] args)
         {
+            //Possibility to see whos turn it is
             int SpielzugCounter = 1;
+            //Identify the Player by Number in the Game
+            int Player1Number = 1;
+            int Player2Number = 2;
             //Playernames
             string Player1 = "";
             string Player2 = "";
+            //Playernames inputs
             Console.Write("Player 1 gib deinen Namen ein: ");
             Player1 = PlayerName();
             Console.Write("Player 2 gib deinen Namen ein: ");
             Player2 = PlayerName();
+            //Symbol Explanation
             Console.Write("Heißer Scheiß! " + Player1 + " hat das Symbol X " + Player2 + " hat das Symbol O.\n");
             ShowBspfeld();
             Console.Write("Ok. " + Player1 + " beginnt! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
-            int Player1Number = 1;
-            int Player2Number = 2;
+            
             int[] Spielstand = { 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-            SpielzugCounter = Game(Spielstand, SpielzugCounter);
+            Game(Spielstand, SpielzugCounter);
+            SpielzugCounter=Zaehler(SpielzugCounter);
 
-            Console.Write(SpielzugCounter);
-            Console.Write(Spielstand[0]);
+            Console.Write(SpielzugCounter + "\n");
+            for (int i = 0; i < Spielstand.Length; i++)
+            {
+                Console.WriteLine("Element " + i + ": " + Spielstand[i]);
+            };
 
+
+
+        }
+        private static int Zaehler(int SpielzugCounter)
+        {
+
+            SpielzugCounter++;
+            return SpielzugCounter;
 
 
         }
@@ -53,7 +70,8 @@ namespace TicTacToe
             Console.WriteLine(Leerzeile);
         }
         
-        private static int Game(int[]Spielstand, int SpielzugCounter)
+        
+        private static int[] Game(int[]Spielstand, int SpielzugCounter)
         {
             string Auswahl = "";
             Auswahl = Console.ReadLine();         
@@ -328,8 +346,8 @@ namespace TicTacToe
                     break;                    
             }
 
-            SpielzugCounter++;
-            return SpielzugCounter;            
+            
+            return  Spielstand;            
         }
     }
 }
