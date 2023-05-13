@@ -4,7 +4,7 @@ namespace TicTacToe
 {
     class Program
     {
-   
+
         static void Main(string[] args)
         {
             //Possibility to see whos turn it is
@@ -12,6 +12,9 @@ namespace TicTacToe
             //Identify the Player by Number in the Game
             int Player1Number = 1;
             int Player2Number = 2;
+            //Displays the Development of the Game
+            //every Space in this Array displays a Field on the Board
+            int[] Spielstand = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             //Playernames
             string Player1 = "";
             string Player2 = "";
@@ -24,11 +27,11 @@ namespace TicTacToe
             Console.Write("Heißer Scheiß! " + Player1 + " hat das Symbol X " + Player2 + " hat das Symbol O.\n");
             ShowBspfeld();
             Console.Write("Ok. " + Player1 + " beginnt! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
-            
-            int[] Spielstand = { 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+
 
             Game(Spielstand, SpielzugCounter);
-            SpielzugCounter=Zaehler(SpielzugCounter);
+            SpielzugCounter = Zaehler(SpielzugCounter);
 
             Console.Write(SpielzugCounter + "\n");
             for (int i = 0; i < Spielstand.Length; i++)
@@ -66,21 +69,21 @@ namespace TicTacToe
             Console.WriteLine(Zeile3);
             Console.WriteLine(Leerzeile);
         }
-        
-        
-        private static int[] Game(int[]Spielstand, int SpielzugCounter)
+
+
+        private static int[] Game(int[] Spielstand, int SpielzugCounter)
         {
             string Auswahl = "";
             Auswahl = Console.ReadLine();
-            
+
             switch (Auswahl)
             {
                 case "1":
-                    if (SpielzugCounter  % 2 == 0)
+                    if (SpielzugCounter % 2 == 0)
                     {
                         if (Spielstand[0] == 0)
                         {
-                            Spielstand[0] = 2;                            
+                            Spielstand[0] = 2;
                         }
                         else
                         {
@@ -100,7 +103,7 @@ namespace TicTacToe
                             Game(Spielstand, SpielzugCounter);
                         }
 
-                    }                    
+                    }
                     break;
                 case "2":
                     if (SpielzugCounter % 2 == 0)
@@ -338,9 +341,9 @@ namespace TicTacToe
                 default:
                     Console.WriteLine("Diese Eingabe entspricht nicht den Zahlen von 1-9. Try again.");
                     Game(Spielstand, SpielzugCounter);
-                    break;                    
-            }            
-            return  Spielstand;            
+                    break;
+            }
+            return Spielstand;
         }
     }
 }
