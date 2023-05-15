@@ -11,6 +11,7 @@ namespace TicTacToe
             //Identify the Player by Number in the Game
             int Player1Number = 1;
             int Player2Number = 2;
+            bool SpielBeendet = false;
             //Displays the Development of the Game
             //every Space in this Array displays a Field on the Board
             int[] Spielstand = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -24,25 +25,78 @@ namespace TicTacToe
             Player2 = PlayerName();
             //Symbol Explanation
             Console.Write("Heißer Scheiß! " + Player1 + " hat das Symbol X " + Player2 + " hat das Symbol O.\n");
-            ShowBspfeld(Spielstand);
+            ShowBspfeld(Spielstand);            
             Console.Write("Ok. " + Player1 + " beginnt! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
+            SpielBeendet = false;
+
+            while (!Gewonnen(Spielstand))
+            {
+                
+                Game(Spielstand);
+                ShowBspfeld(Spielstand);
+                if (Spielstand[0] % 2 == 0)
+                {
+                    Console.Write(Player2 + " ist dran! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
+
+                }
+                else
+                {
+                    Console.Write(Player1 + " ist dran! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
+                }
+                
+                
+                
+            }
+            if (Gewonnen(Spielstand) && Spielstand[0] % 2 == 0)
+            {
+                Console.Write(Player1 + " gewinnt!\n");
+
+            }
+            else if (Gewonnen(Spielstand) && Spielstand[0] %2 != 0)
+            {
+                Console.Write(Player2 + " gewinnt.\n");
+            }
 
 
-            Game(Spielstand);
-            ShowBspfeld(Spielstand);
-            Console.Write("Ok. " + Player2 + " ist dran! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
-            Game(Spielstand);
-            ShowBspfeld(Spielstand);
-
-
-
-            //for (int i = 0; i < Spielstand.Length; i++)
-            //{
-            //    Console.WriteLine("Element " + i + ": " + Spielstand[i]);
-            //};
-
-
-
+        }
+        private static bool Gewonnen(int[] Spielstand)
+        {
+            
+            if (Spielstand[1] == Spielstand[2] && Spielstand[1] == Spielstand[3] && (Spielstand[1] == 1 || Spielstand[1] == 2))
+            {
+                return true;
+            }
+            if (Spielstand[4] == Spielstand[5] && Spielstand[4] == Spielstand[6] && (Spielstand[4] == 1 || Spielstand[4] == 2))
+            {
+                return true;
+            }
+            if (Spielstand[7] == Spielstand[8] && Spielstand[7] == Spielstand[9] && (Spielstand[7] == 1 || Spielstand[7] == 2))
+            {
+                return true;
+            }
+            if (Spielstand[1] == Spielstand[4] && Spielstand[1] == Spielstand[7] && (Spielstand[1] == 1 || Spielstand[1] == 2))
+            {
+                return true;
+            }
+            if (Spielstand[2] == Spielstand[5] && Spielstand[2] == Spielstand[8] && (Spielstand[2] == 1 || Spielstand[2] == 2))
+            {
+                return true;
+            }
+            if (Spielstand[3] == Spielstand[6] && Spielstand[3] == Spielstand[9] &&(Spielstand[3] == 1 || Spielstand[3] == 2))
+            {
+                return true;
+            }
+            if (Spielstand[1] == Spielstand[5] && Spielstand[1] == Spielstand[9] && (Spielstand[1] == 1 || Spielstand[1] == 2))
+            {
+                return true;
+            }
+            if (Spielstand[3] == Spielstand[5] && Spielstand[3] == Spielstand[7] && (Spielstand[3] == 1 || Spielstand[3] == 2))
+            {
+                return true;
+            }
+                        
+            return false;
+            
         }
         
 
@@ -53,17 +107,24 @@ namespace TicTacToe
 
         private static void ShowBspfeld(int[]Spielstand)
         {
+
             string Leerzeile = "------------- ";
             string Zeile1 = "| " + Spielstand[1] + " | " + Spielstand[2] + " | " + Spielstand[3] + " |";
             string Zeile2 = "| " + Spielstand[4] + " | " + Spielstand[5] + " | " + Spielstand[6] + " |";
             string Zeile3 = "| " + Spielstand[7] + " | " + Spielstand[8] + " | " + Spielstand[9] + " |";
-
+            Console.Clear();
+            Console.WriteLine("###############");
+            Console.WriteLine("###############");
+            Console.WriteLine("###TicTacToe###");
+            Console.WriteLine("###############");
+            Console.WriteLine("###############");
+            
             Console.WriteLine(Leerzeile);
-            Console.WriteLine("| 1 | 2 | 3 |");
+            Console.WriteLine(" | 1 | 2 | 3 |");
             Console.WriteLine(Leerzeile);
-            Console.WriteLine("| 4 | 5 | 6 |");
+            Console.WriteLine(" | 4 | 5 | 6 |");
             Console.WriteLine(Leerzeile);
-            Console.WriteLine("| 7 | 8 | 9 |");
+            Console.WriteLine(" | 7 | 8 | 9 |");
             Console.WriteLine(Leerzeile);
 
             Console.WriteLine(Leerzeile);
