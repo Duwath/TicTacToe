@@ -7,7 +7,7 @@ namespace TicTacToe
 
         static void Main(string[] args)
         {
-            
+
             //Identify the Player by Number in the Game
             int Player1Number = 1;
             int Player2Number = 2;
@@ -25,13 +25,13 @@ namespace TicTacToe
             Player2 = PlayerName();
             //Symbol Explanation
             Console.Write("Heißer Scheiß! " + Player1 + " hat das Symbol X " + Player2 + " hat das Symbol O.\n");
-            ShowBspfeld(Spielstand);            
+            ShowBspfeld(Spielstand);
             Console.Write("Ok. " + Player1 + " beginnt! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
             SpielBeendet = false;
 
-            while (!Gewonnen(Spielstand))
+            while (!Gewonnen(Spielstand) && !Voll(Spielstand))
             {
-                
+
                 Game(Spielstand);
                 ShowBspfeld(Spielstand);
                 if (Spielstand[0] % 2 == 0)
@@ -43,25 +43,36 @@ namespace TicTacToe
                 {
                     Console.Write(Player1 + " ist dran! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
                 }
-                
-                
-                
+
+
+
             }
-            if (Gewonnen(Spielstand) && Spielstand[0] % 2 == 0)
+            if (Gewonnen(Spielstand))
             {
-                Console.Write(Player1 + " gewinnt!\n");
+                if (Spielstand[0] % 2 == 0)
+                {
+                    Console.Write(Player1 + " gewinnt!\n");
 
+                }
+                else
+                {
+                    Console.Write(Player2 + " gewinnt.\n");
+                }
             }
-            else if (Gewonnen(Spielstand) && Spielstand[0] %2 != 0)
+            else if (Voll(Spielstand))
             {
-                Console.Write(Player2 + " gewinnt.\n");
+                Console.WriteLine("Unentschieden! Alle Felder sind belegt, und es gibt keinen Gewinner.");
             }
-
-
         }
+
+
+
+
+
+
         private static bool Gewonnen(int[] Spielstand)
         {
-            
+
             if (Spielstand[1] == Spielstand[2] && Spielstand[1] == Spielstand[3] && (Spielstand[1] == 1 || Spielstand[1] == 2))
             {
                 return true;
@@ -82,7 +93,7 @@ namespace TicTacToe
             {
                 return true;
             }
-            if (Spielstand[3] == Spielstand[6] && Spielstand[3] == Spielstand[9] &&(Spielstand[3] == 1 || Spielstand[3] == 2))
+            if (Spielstand[3] == Spielstand[6] && Spielstand[3] == Spielstand[9] && (Spielstand[3] == 1 || Spielstand[3] == 2))
             {
                 return true;
             }
@@ -94,46 +105,70 @@ namespace TicTacToe
             {
                 return true;
             }
-                        
+
             return false;
-            
+
         }
-        
+        private static bool Voll(int[] Spielstand)
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                if (Spielstand[i] == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
 
         private static string PlayerName()
         {
             return Console.ReadLine();
         }
 
-        private static void ShowBspfeld(int[]Spielstand)
+        private static void ShowBspfeld(int[] Spielstand)
         {
 
-            string Leerzeile = "------------- ";
-            string Zeile1 = "| " + Spielstand[1] + " | " + Spielstand[2] + " | " + Spielstand[3] + " |";
-            string Zeile2 = "| " + Spielstand[4] + " | " + Spielstand[5] + " | " + Spielstand[6] + " |";
-            string Zeile3 = "| " + Spielstand[7] + " | " + Spielstand[8] + " | " + Spielstand[9] + " |";
+            string Leerzeile1 = " ------------- ";
+            string Leerzeile2 = " ----+---+---- ";
+            string Zeile1 = " | " + Symbol(Spielstand[1]) + " | " + Symbol(Spielstand[2]) + " | " + Symbol(Spielstand[3]) + " |";
+            string Zeile2 = " | " + Symbol(Spielstand[4]) + " | " + Symbol(Spielstand[5]) + " | " + Symbol(Spielstand[6]) + " |";
+            string Zeile3 = " | " + Symbol(Spielstand[7]) + " | " + Symbol(Spielstand[8]) + " | " + Symbol(Spielstand[9]) + " |";
             Console.Clear();
             Console.WriteLine("###############");
             Console.WriteLine("###############");
             Console.WriteLine("###TicTacToe###");
             Console.WriteLine("###############");
             Console.WriteLine("###############");
-            
-            Console.WriteLine(Leerzeile);
-            Console.WriteLine(" | 1 | 2 | 3 |");
-            Console.WriteLine(Leerzeile);
-            Console.WriteLine(" | 4 | 5 | 6 |");
-            Console.WriteLine(Leerzeile);
-            Console.WriteLine(" | 7 | 8 | 9 |");
-            Console.WriteLine(Leerzeile);
 
-            Console.WriteLine(Leerzeile);
+            Console.WriteLine(Leerzeile1);
+            Console.WriteLine(" | 1 | 2 | 3 |");
+            Console.WriteLine(Leerzeile2);
+            Console.WriteLine(" | 4 | 5 | 6 |");
+            Console.WriteLine(Leerzeile2);
+            Console.WriteLine(" | 7 | 8 | 9 |");
+            Console.WriteLine(Leerzeile1);
+
+            Console.WriteLine(Leerzeile1);
             Console.WriteLine(Zeile1);
-            Console.WriteLine(Leerzeile);
+            Console.WriteLine(Leerzeile2);
             Console.WriteLine(Zeile2);
-            Console.WriteLine(Leerzeile);
+            Console.WriteLine(Leerzeile2);
             Console.WriteLine(Zeile3);
-            Console.WriteLine(Leerzeile);
+            Console.WriteLine(Leerzeile1);
+        }
+        private static string Symbol(int value)
+        {
+            switch (value)
+            {
+                case 1:
+                    return "X";
+                case 2:
+                    return "O";
+                default:
+                    return " ";
+            }
         }
 
 
@@ -154,7 +189,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
                         }
                     }
                     else
@@ -166,7 +201,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
                         }
 
                     }
@@ -181,7 +216,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
                     }
@@ -194,7 +229,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
 
@@ -210,7 +245,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
                     }
@@ -223,7 +258,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
 
@@ -239,7 +274,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
                     }
@@ -252,7 +287,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
 
@@ -268,7 +303,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
                     }
@@ -281,7 +316,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
 
@@ -297,7 +332,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
                     }
@@ -310,7 +345,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
 
@@ -326,7 +361,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
                     }
@@ -339,7 +374,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
 
@@ -355,7 +390,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
                     }
@@ -368,7 +403,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
 
@@ -384,7 +419,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
                     }
@@ -397,7 +432,7 @@ namespace TicTacToe
                         else
                         {
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
-                            Game(Spielstand );
+                            Game(Spielstand);
 
                         }
 
@@ -406,12 +441,15 @@ namespace TicTacToe
 
                 default:
                     Console.WriteLine("Diese Eingabe entspricht nicht den Zahlen von 1-9. Try again.");
-                    Game(Spielstand );
+                    Game(Spielstand);
                     break;
             }
-            Spielstand[0] = Spielstand[0]+1;
+            Spielstand[0] = Spielstand[0] + 1;
             return Spielstand;
         }
     }
 }
+
+
+
 
