@@ -16,17 +16,17 @@ namespace TicTacToe
             //every Space in this Array displays a Field on the Board
             int[] Spielstand = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             //Playernames
-            string Player1 = "";
-            string Player2 = "";
+            Player player1 = new Player( 1, "X");
+            Player player2 = new Player( 2, "O");
             //Playernames inputs
             Console.Write("Player 1 gib deinen Namen ein: ");
-            Player1 = PlayerName();
+            player1.SetName();
             Console.Write("Player 2 gib deinen Namen ein: ");
-            Player2 = PlayerName();
+            player2.SetName();
             //Symbol Explanation
-            Console.Write("Heißer Scheiß! " + Player1 + " hat das Symbol X " + Player2 + " hat das Symbol O.\n");
+            Console.Write("Heißer Scheiß! " + player1.GetName() + " hat das Symbol X " + player2.GetName() + " hat das Symbol O.\n");
             ShowBspfeld(Spielstand);
-            Console.Write("Ok. " + Player1 + " beginnt! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
+            Console.Write("Ok. " + player1.GetName() + " beginnt! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
             SpielBeendet = false;
 
             while (!Gewonnen(Spielstand) && !Voll(Spielstand))
@@ -36,12 +36,12 @@ namespace TicTacToe
                 ShowBspfeld(Spielstand);
                 if (Spielstand[0] % 2 == 0)
                 {
-                    Console.Write(Player2 + " ist dran! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
+                    Console.Write(player2.GetName() + " ist dran! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
 
                 }
                 else
                 {
-                    Console.Write(Player1 + " ist dran! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
+                    Console.Write(player1.GetName() + " ist dran! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
                 }
 
 
@@ -51,12 +51,12 @@ namespace TicTacToe
             {
                 if (Spielstand[0] % 2 == 0)
                 {
-                    Console.Write(Player1 + " gewinnt!\n");
+                    Console.Write(player1.GetName() + " gewinnt!\n");
 
                 }
                 else
                 {
-                    Console.Write(Player2 + " gewinnt.\n");
+                    Console.Write(player2.GetName() + " gewinnt.\n");
                 }
             }
             else if (Voll(Spielstand))
@@ -122,10 +122,7 @@ namespace TicTacToe
         }
 
 
-        private static string PlayerName()
-        {
-            return Console.ReadLine();
-        }
+        
 
         private static void ShowBspfeld(int[] Spielstand)
         {
