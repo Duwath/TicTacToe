@@ -51,12 +51,12 @@ namespace TicTacToe
             {
                 if (Spielstand[0] % 2 == 0)
                 {
-                    Console.Write(player1.GetName() + " gewinnt!\n");
+                    Console.Write(player1.GetName() + " gewinnt im "+Spielstand[0]+ "ten Zug!\n");
 
                 }
                 else
                 {
-                    Console.Write(player2.GetName() + " gewinnt.\n");
+                    Console.Write(player2.GetName() + " gewinnt im "+Spielstand[0]+ "ten Zug.\n");
                 }
             }
             else if (Voll(Spielstand))
