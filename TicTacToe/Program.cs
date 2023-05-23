@@ -8,27 +8,28 @@ namespace TicTacToe
         static void Main(string[] args)
         {
 
-            //Identify the Player by Number in the Game
+            //Jedem Spieler wird eine Nummer zugeordnet
             int Player1Number = 1;
             int Player2Number = 2;
+            //Gewinnvariable
             bool SpielBeendet = false;
-            //Displays the Development of the Game
-            //every Space in this Array displays a Field on the Board
+            //Erster Space im Array zeigt den Spielzug an
+            //jeder weitere Space steht für ein Feld im Array
             int[] Spielstand = { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             //Playernames
             Player player1 = new Player( 1, "X");
             Player player2 = new Player( 2, "O");
-            //Playernames inputs
+            //Playername inputs
             Console.Write("Player 1 gib deinen Namen ein: ");
             player1.SetName();
             Console.Write("Player 2 gib deinen Namen ein: ");
             player2.SetName();
-            //Symbol Explanation            
+            //Jedem Spieler werden Symbole zugeordnet            
             ShowBspfeld(Spielstand);
             Console.Write("Heißer Scheiß! " + player1.GetName() + " hat das Symbol X " + player2.GetName() + " hat das Symbol O.\n");
             Console.Write("Ok. " + player1.GetName() + " beginnt! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
-            SpielBeendet = false;
-
+            
+            //Gameloop
             while (!Gewonnen(Spielstand) && !Voll(Spielstand))
             {
 
@@ -75,7 +76,7 @@ namespace TicTacToe
 
 
 
-
+        //Gewinnschleife
         private static bool Gewonnen(int[] Spielstand)
         {
 
@@ -115,6 +116,7 @@ namespace TicTacToe
             return false;
 
         }
+        //Vollschleife
         private static bool Voll(int[] Spielstand)
         {
             for (int i = 1; i <= 9; i++)
@@ -129,7 +131,7 @@ namespace TicTacToe
 
 
         
-
+        //Spielfeld Darstellung
         private static void ShowBspfeld(int[] Spielstand)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -163,6 +165,8 @@ namespace TicTacToe
             Console.WriteLine(Zeile3);
             Console.WriteLine(Leerzeile1);
         }
+
+        //Symbole in Spielfeld
         private static string Symbol(int value)
         {
             switch (value)
@@ -176,7 +180,7 @@ namespace TicTacToe
             }
         }
 
-
+        //Zuweisung der Spielernummern an die Positionen im Array bzw auf dem Spielfeld
         private static int[] Game(int[] Spielstand)
         {
             string Auswahl = "";
