@@ -51,17 +51,23 @@ namespace TicTacToe
             {
                 if (Spielstand[0] % 2 == 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write(player1.GetName() + " gewinnt im "+(Spielstand[0]-1)+ "ten Zug!\n");
+                    Console.ResetColor();
 
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write(player2.GetName() + " gewinnt im "+(Spielstand[0]-1)+ "ten Zug.\n");
+                    Console.ResetColor();
                 }
             }
             else if (Voll(Spielstand))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Unentschieden! Alle Felder sind belegt, und es gibt keinen Gewinner.");
+                Console.ResetColor();
             }
         }
 
@@ -126,18 +132,20 @@ namespace TicTacToe
 
         private static void ShowBspfeld(int[] Spielstand)
         {
-
+            Console.ForegroundColor = ConsoleColor.Cyan;
             string Leerzeile1 = " ------------- ";
             string Leerzeile2 = " ----+---+---- ";
             string Zeile1 = " | " + Symbol(Spielstand[1]) + " | " + Symbol(Spielstand[2]) + " | " + Symbol(Spielstand[3]) + " |";
             string Zeile2 = " | " + Symbol(Spielstand[4]) + " | " + Symbol(Spielstand[5]) + " | " + Symbol(Spielstand[6]) + " |";
             string Zeile3 = " | " + Symbol(Spielstand[7]) + " | " + Symbol(Spielstand[8]) + " | " + Symbol(Spielstand[9]) + " |";
             Console.Clear();
+
             Console.WriteLine("###############");
             Console.WriteLine("###############");
             Console.WriteLine("###TicTacToe###");
             Console.WriteLine("###############");
             Console.WriteLine("###############");
+            Console.ResetColor();
 
             Console.WriteLine(Leerzeile1);
             Console.WriteLine(" | 1 | 2 | 3 |");
@@ -185,7 +193,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
                         }
                     }
@@ -197,7 +207,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
                         }
 
@@ -212,7 +224,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -225,7 +239,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -241,7 +257,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -254,7 +272,9 @@ namespace TicTacToe
                         }
                         else
                         {
-                            Console.WriteLine("Dieses Feld ist schon von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -270,7 +290,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -283,7 +305,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -299,7 +323,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -312,7 +338,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -328,7 +356,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -341,7 +371,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -357,7 +389,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -370,7 +404,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -386,7 +422,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -399,7 +437,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -415,7 +455,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -428,7 +470,9 @@ namespace TicTacToe
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Dieses Feld ist schon von von einem Spieler belegt. Wähle ein anderes.");
+                            Console.ResetColor();
                             Game(Spielstand);
 
                         }
@@ -437,7 +481,9 @@ namespace TicTacToe
                     break;
 
                 default:
-                    Console.WriteLine("Diese Eingabe entspricht nicht den Zahlen von 1-9. Try again.");
+                    Console.ForegroundColor = ConsoleColor.Red;                    
+                    Console.WriteLine("Diese Eingabe entspricht nicht den Zahlen von 1-9. Try again.");                    
+                    Console.ResetColor();
                     Game(Spielstand);
                     break;
             }
