@@ -23,9 +23,9 @@ namespace TicTacToe
             player1.SetName();
             Console.Write("Player 2 gib deinen Namen ein: ");
             player2.SetName();
-            //Symbol Explanation
-            Console.Write("Heißer Scheiß! " + player1.GetName() + " hat das Symbol X " + player2.GetName() + " hat das Symbol O.\n");
+            //Symbol Explanation            
             ShowBspfeld(Spielstand);
+            Console.Write("Heißer Scheiß! " + player1.GetName() + " hat das Symbol X " + player2.GetName() + " hat das Symbol O.\n");
             Console.Write("Ok. " + player1.GetName() + " beginnt! Wähle eine Zahl um deine Position auf dem Spielfeld zu wählen.\n");
             SpielBeendet = false;
 
@@ -51,12 +51,12 @@ namespace TicTacToe
             {
                 if (Spielstand[0] % 2 == 0)
                 {
-                    Console.Write(player1.GetName() + " gewinnt im "+Spielstand[0]+ "ten Zug!\n");
+                    Console.Write(player1.GetName() + " gewinnt im "+(Spielstand[0]-1)+ "ten Zug!\n");
 
                 }
                 else
                 {
-                    Console.Write(player2.GetName() + " gewinnt im "+Spielstand[0]+ "ten Zug.\n");
+                    Console.Write(player2.GetName() + " gewinnt im "+(Spielstand[0]-1)+ "ten Zug.\n");
                 }
             }
             else if (Voll(Spielstand))
